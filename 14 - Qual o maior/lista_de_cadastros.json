@@ -1,0 +1,44 @@
+[
+    {
+        "nome": "Facebook",
+        "descricao": "rede social",
+        "pais": "Estados Unidos",
+        "pesquisas": 1440000001
+    },
+    {
+        "nome": "Youtube",
+        "descricao": "website de v\u00eddeos",
+        "pais": "Estados Unidos",
+        "pesquisas": 1440000000
+    },
+    {
+        "nome": "Amazon",
+        "descricao": "website de compras",
+        "pais": "Estados Unidos",
+        "pesquisas": 1200000000
+    },
+    {
+        "nome": "Messi",
+        "descricao": "jogador de futebol",
+        "pais": "Argentina",
+        "pesquisas": 43493385
+    },
+    {
+        "nome": "Pele",
+        "descricao": "jogador de futebol",
+        "pais": "Brasil",
+        "pesquisas": 24468352
+    },
+    {
+        "nome": "luigi",
+        "descricao": "ruivo",
+        "pais": "Brasil",
+        "pesquisas": 1750000
+    },
+    {
+        "nome": "Github",
+        "descricao": "website de versionamento de c\u00f3digo",
+        "pais": "Estados unidos",
+        "pesquisas": 80
+    }
+]
