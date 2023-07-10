@@ -68,7 +68,7 @@ def make_coffee(order, resources):
 
 
 while True:
-    option = input("Insert your order [espresso/latte/cappuccino]")
+    option = input("Insert your order [espresso/latte/cappuccino]: ")
     if option == 'off':
         break
     elif option == 'report':
