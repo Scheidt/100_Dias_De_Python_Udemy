@@ -45,9 +45,9 @@ def report(resources: dict):
 def process_coins():
     print("Insert the amount of coins")
     total = int(input("how many quarters (0.25$)?: ")) * 0.25
-    total += int(input("how many dimes (0.01$)?: ")) * 0.1
-    total += int(input("how many nickles (?: ")) * 0.05
-    total += int(input("how many pennies?: ")) * 0.01
+    total += int(input("how many dimes (0.1$)?: ")) * 0.1
+    total += int(input("how many nickles (0.05): ")) * 0.05
+    total += int(input("how many pennies? (0.01): ")) * 0.01
     return total
 # Check transaction sucessful?
 def check_enough_money(order, payment):
@@ -62,7 +62,7 @@ def check_enough_money(order, payment):
 
 # Make cofee
 def make_coffee(order, resources):
-    for ingredient, value in order['ingredients'].values:
+    for ingredient, value in order['ingredients'].values():
         resources[ingredient] -= value
     print("Your order is done!")
 
@@ -75,7 +75,7 @@ while True:
         report(resources)
     else:
         try:
-            order = menu['order']
+            order = menu[option]
         except:
             print("This option does not exist! Try another one")
         else:
