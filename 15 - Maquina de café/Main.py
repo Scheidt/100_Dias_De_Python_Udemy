@@ -32,7 +32,7 @@ resources = {
 }
 
 
-#Printar relatório
+# Check Resources
 def report(resources: dict):
     print("REPORT OF THE MACHINE'S RESOURCES")
     print(f"The machine has {resources['water']} ml of water")
@@ -40,30 +40,35 @@ def report(resources: dict):
     print(f"The machine has {resources['coffee']} g of cooffee")
     print(f"The machine has {resources['money']}$")
 
-# Check Resources
 # Process coins
 def process_coins():
     print("Insert the amount of coins")
-    total = int(input("how many quarters (0.25$)?: ")) * 0.25
-    total += int(input("how many dimes (0.1$)?: ")) * 0.1
-    total += int(input("how many nickles (0.05): ")) * 0.05
-    total += int(input("how many pennies? (0.01): ")) * 0.01
-    return total
+    while True:
+        try:
+            total = int(input("Insert the amount of quarters (0.25$)?: ")) * 0.25
+            total += int(input("Insert the amount of dimes (0.1$)?: ")) * 0.1
+            total += int(input("Insert the amount of nickles (0.05): ")) * 0.05
+            total += int(input("Insert the amount of pennies? (0.01): ")) * 0.01
+            return total
+        except:
+            print("Você inseriu um valor não numérico. Por favor, tente novamente.")
+
 # Check transaction sucessful?
 def check_enough_money(order, payment):
     if payment >= order['cost']:
         print("payment successful!")
         if payment >= order['cost']:
-            print(f"Dispensing change of {payment-order['cost']}")
+            print(f"Dispensing change of {payment-order['cost']}$")
         return True
     else:
-        print("You haven't inserted enought money! Money inserted returned")
+        print(f"You haven't inserted enought money! The {payment:.2fes}$ you inserted will be returned.")
         return False
 
 # Make cofee
 def make_coffee(order, resources):
-    for ingredient, value in order['ingredients'].values():
+    for ingredient, value in order['ingredients'].items():
         resources[ingredient] -= value
+    resources['money'] += order['cost']
     print("Your order is done!")
 
 
