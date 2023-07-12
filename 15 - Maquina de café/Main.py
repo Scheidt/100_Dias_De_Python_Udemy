@@ -65,7 +65,11 @@ def check_enough_money(order, payment):
         return False
 
 # Make cofee
-def make_coffee(order, resources):
+def make_coffee(order):
+    # Verify if machine has enough ingredients
+    for ingredient, value in order['ingredients'].items():
+       if resources[ingredient] - value < 0:
+           print(f"The machine doesn't have enough {ingredient} to make your order. Money returned")
     for ingredient, value in order['ingredients'].items():
         resources[ingredient] -= value
     resources['money'] += order['cost']
@@ -86,4 +90,4 @@ while True:
         else:
             money = process_coins()
             if check_enough_money(order, money):
-                make_coffee(order, resources)
+                make_coffee(order)
