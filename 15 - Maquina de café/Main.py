@@ -64,13 +64,16 @@ def check_enough_money(order, payment):
         print(f"You haven't inserted enought money! The {payment:.2fes}$ you inserted will be returned.")
         return False
 
+
+def verify_ingredients(order): # Verify if machine has enough ingredients
+    for ingredient, value in order['ingredients'].items():
+        if resources[ingredient] - value < 0:
+            print(f"The machine doesn't have enough {ingredient} to make your order. Money returned")
+            return True
+    return False
+
 # Make cofee
 def make_coffee(order):
-    # Verify if machine has enough ingredients
-    for ingredient, value in order['ingredients'].items():
-       if resources[ingredient] - value < 0:
-           print(f"The machine doesn't have enough {ingredient} to make your order. Money returned")
-           return
     for ingredient, value in order['ingredients'].items():
         resources[ingredient] -= value
     resources['money'] += order['cost']
@@ -89,6 +92,7 @@ while True:
         except:
             print("This option does not exist! Try another one")
         else:
-            money = process_coins()
-            if check_enough_money(order, money):
-                make_coffee(order)
+            if verify_ingredients(order):
+                money = process_coins()
+                if check_enough_money(order, money):
+                    make_coffee(order)
