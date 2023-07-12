@@ -70,6 +70,7 @@ def make_coffee(order):
     for ingredient, value in order['ingredients'].items():
        if resources[ingredient] - value < 0:
            print(f"The machine doesn't have enough {ingredient} to make your order. Money returned")
+           return
     for ingredient, value in order['ingredients'].items():
         resources[ingredient] -= value
     resources['money'] += order['cost']
