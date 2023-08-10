@@ -1,19 +1,19 @@
 class Question():
-    def __init__(self, question, answer) -> None:
-        self.__question = question
+    def __init__(self, text, answer) -> None:
+        self.__text = text
         self.__answer = answer
 
     @property
-    def question(self):
-        return self.__question
+    def text(self):
+        return self.__text
     
     @property
     def answer(self):
         return self.__answer
     
-    @question.setter
-    def question(self, question):
-        self.__question = question
+    @text.setter
+    def text(self, text):
+        self.__text = text
 
     @answer.setter
     def answer(self, answer):
